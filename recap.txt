@@ -1,0 +1,36 @@
+Basically, we want one thing (a grid column) to be several things (different widths) at different states (breakpoints).
+
+The easiest way to make one thing behave in multiple different ways is, simply, multiple style hooks (i.e. classes). To make one thing behave in a variety of different (and opposing; remember, a grid cannot be full-width and half-width at the same time) ways is to have a separate class for each of those states.
+
+Even with media queries, it is naive to think you can simply, consistently and cleanly make an arbitrary array of things all behave completely differently. If you want a div to have three states then it’s somewhat naive to think you can handle that nicely without three corresponding classes.
+
+...
+
+In order to combat our .span-12 style of inappropriate classes, we need to think about working with classes like .one-whole, .three-fifths, .five-twelfths and so on. These mean that, instead of spanning x columns, we are now telling a column to take up x percentage of the available width.
+
+...
+
+Grid systems are incredibly high-level scaffolding and page structure, so they will likely only change in the shift between breakpoints (and often devices), for example a layout might typically be linear for mobile (or smallest screens), a little wider for tablet (smaller screens), wider still for desktop (or wider screens).
+
+Using this diagram from none other than Luke Wroblewski we can choose our layout-specific breakpoints as being:
+
+Palm for things that fit in our hands (like phones).
+Lap for devices that are not handheld, but ‘lap’ devices (like tablets).
+Portable for either of the above.
+Desk for stationary devices (like TVs, PCs etc).
+
+...
+
+Now we have a range of classes that only do certain things at certain sizes, tied to our targeted device sizes:
+<div class="one-whole  lap-three-fifths  desk-one-half">
+
+N.B. It is widely regarded (and rightly so) that you should not base media queries on device sizes but on ‘what looks best’. This, for the most part, is very true, but we need to think pragmatically. If we want a flexible, recyclable and efficient grid system then we need these absolutes in place.
+
+Because we are writing a grid system to fire at fixed breakpoints it is important to:
+
+- Make sure the values you use for your breakpoints aren’t based on actual devices (e.g. iPhone in portrait) but are based on numbers that work best.
+
+- Ensure that your grid remains fluid between breakpoints so that even if it doesn’t reformat, it will still resize.
+
+
+

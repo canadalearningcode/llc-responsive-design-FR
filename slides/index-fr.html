@@ -1,0 +1,1360 @@
+﻿<!DOCTYPE html> 
+<!--
+  Copyright 2011 Ladies Learning Code.
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ 
+  Original slides: Marcin Wichary (mwichary@google.com) and http://html5rocks.com
+  Original content: Rebecca Putinski & Kitty Shum (h4xnoodle@gmail.com)
+  Modifications: Pearl Chen (pearl.chen@ladieslearningcode.com) for http://workshop.ladieslearningcode.com
+  Further Modifications: Mark Reale (mark@yorkvillemediacentre.com) for Ladies Learning Code
+  Even further modifications: Angelina Fabbro (angelina@steamclock.com) for Ladies Learning Code
+--> 
+<html manifest="cache.appcache"> 
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" /> 
+    <title>Mobile Web Workshop - Ladies Learning Code - May 18, 2013</title> 
+   	<link href='http://fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'> 
+    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled /> 
+    <link href="css/default.css" class="theme" rel="stylesheet" media="screen"  />
+    <link href="css/sea_wave.css" class="theme" rel="stylesheet" media="screen"  /> 
+    <link href="css/common.css" rel="stylesheet" media="screen" /> 
+  </head> 
+  <body> 
+    <nav id="helpers" style='display:none;'> 
+      <button title="Previous slide" id="nav-prev" class="nav-prev">⇽</button> 
+      <button title="Jump to a random slide" id="slide-no">5</button> 
+      <button title="Next slide" id="nav-next" class="nav-next">⇾</button> 
+      <menu> 
+        <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button> 
+        <button type="checkbox" data-command="notes" title="View Slide Notes">✏</button> 
+        <button type="checkbox" data-command="source" title="View slide source">↻</button> 
+        <button type="checkbox" data-command="help" title="View Help">?</button> 
+      </menu> 
+    </nav> 
+    <div class="presentation"> 
+      <div id="presentation-counter">Loading...</div> 
+      <div id='slide-counter'></div>
+      <div class="slides"> 
+        <div class="slide" id="landing-slide"> 
+          <style> 
+            #landing-slide h1 {
+              font-family: 'Podkova', Arial;
+              font-size: 35px;
+            }
+            #landing-slide p {
+              font-size: 25px;
+            }
+            .with {
+              font-family:'Georgia',serif;
+              font-size:26px;
+              font-style:italic;
+            }
+          </style> 
+          <section class="middle"> 
+            <h1># LADIES LEARNING CODE</h1>
+            <p style='color:#b1009a;font-size:34px'>Le web adapté aux <br> appareils mobile, introduction (HTML5)</p>
+            <p class='with'>avec</p>
+            <p>Pierre-Philippe Emond (<a href="http://olstudio.co/">OL Studio</a>)</p>
+            <p>Contenu par: Kitty Shum (@kitty_shum on Twitter)
+            <p>Appuyez <span id="left-init-key" class="key">&rarr;</span> pour aller de l'avant.</p> 
+          </section> 
+        </div> 
+       
+	   <!-- INTRO -->
+        <div class="slide" id="course-outline"> 
+          <section> 
+            <header><h1>Planification de l'atelier</h1></header>
+            <h2>Ce matin</h2>
+            <p>Introduction des concepts de design pour appareils mobiles<br />
+            Créer le web mobile<br />
+            HTML/CSS pour le web mobile<br />
+            Éléments clés de CSS pour les mobiles</p>
+            <h2>Dîner!</h2>
+            <p>Les images et votre contenu<br />
+            L'adaptation du design pour desktop vs. mobile<br/>
+            Des techniques pour le contenu<br />
+            La navigation<br />
+            Des propriétés utiles
+            </p>
+            <h2>Testez vos connaissances</h2>
+            <p>Continuez d'éditer ou de créer vous-même<br />
+            Montrez votre travail !
+            Comment faire?</p>
+          </section> 
+        </div> 
+    
+    <div class='slide exercise' id='setup'>
+      <header><h1>Installez votre environnement de travail</h1></header>
+      <section>
+        <ul>
+          <li>Votre téléphone intelligent si vous en avez un </li>
+          <li>Éditeur de texte - Sublime Text 2 en est un bon</li>
+          <li>Programmes FTP: Filezilla, Cyberduck, WinSCP etc.</li>
+        </ul>
+        <h2>Essayez le FTP</h2>
+        <p>Host: <strong>m.ladieslearningcode.com</strong></p>
+        <p>Username/ nom d'usager: <strong>llc</strong></p>
+        <p>Password/ mot de passe: <strong>helloworld</strong></p>
+      </section>
+    </div>
+        
+    <div class='slide' id='why-mobile'>
+      <style>
+        #why-mobile {
+          background:url('assets/why_mobile.png') center 80% no-repeat;
+        }
+      </style>
+      <header><h1>Pourquoi devrions-nous prévoir un design pour les appareils mobiles ?</h1></header>
+    </div>
+    <div class="slide" id="phone-population"> 
+      <header><h1>Parce qu'il y a presque autant d'usagers <br> que d'humain sur terre</h1></header>
+      <section> 
+        <p style='text-align:center;'>
+        <br>
+        <br>
+        <img src='assets/beforeafter-of-pope-announcement-shows-incredible-proliferation-of-mobile-in-just-8-years.jpg' style='height:350px' />
+        <ul>
+          <li> <bold>Usagers d'un téléphone mobile: </bold>6 Billion   v.s.  <bold>Population mondiale: </bold>7 Billion</li>
+          <li> référence: NBC News</li>
+        </ul>
+      </section> 
+    </div>  
+    <div class="slide" id="phone-more-than-partner"> 
+      <header><h1>Nous passons plus de temps à regarder notre appareil mobile qu'à regarder notre partenaire</h1></header><br><br>
+      <section> 
+        <p style='text-align:center;'>
+        <br>
+        <br>
+        <img src='assets/lookAtPhone.jpg' style='height:250px' />&nbsp;&nbsp;&nbsp;v.s.&nbsp;&nbsp;&nbsp;<img src='assets/lookAtPartner.jpg' style='height:250px'/>
+        <br>2.5 heures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.5 heures&nbsp;&nbsp;
+        <ul>
+          <li> référence: <a href="http://www.dailymail.co.uk/sciencetech/article-2333261/We-spend-MORE-time-phones-partner.html">dailymail.co.uk</a></li>
+        </ul>
+      </section> 
+    </div>  
+    <div class='slide' id='design-for-mobile'>
+      <style>
+        #design-for-mobile {
+          background:url('assets/devices.png') center 80% no-repeat;
+        }
+      </style>
+      <header><h1>Qu'est-ce que ça implique de faire un design pour les mobiles ?</h1></header>
+    </div>
+        
+    <div class="slide" id="desktop-vs-mobile"> 
+      <header><h1>Desktop vs. Mobile</h1></header>
+      <section> 
+        <p style='text-align:center;'>
+        <img src='assets/desktop.jpg' style='height:300px' />&nbsp;&nbsp;&nbsp;v.s.&nbsp;&nbsp;&nbsp;<img src='assets/iphone.jpg' style='height:100px'/>
+        <ul style="margin-top: -24px">
+          <li>Appareil - comment vous l'utilisez, ses capacités</li>
+          <li>Temps - le temps que vous avez</li>
+          <li>Bur - ce que vous désirez accomplir </li>
+          <li>Lieu - où vous l'utilisez</li>
+          <li>Attitude - votre état d'esprit</li> 
+        </ul>
+      </section> 
+    </div>   
+
+    <div class='slide exercise' id='ex1-mobile-experience'>
+      <header><h1>Exercice #1 - L'expérience du mobile</h1></header>
+      <section>
+        <div style='margin:0 auto; text-align:center;'>
+      <img src='assets/theloop_desktop.png' style='height:320px' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='assets/theloop_mobile.png' style='height:320px' />
+    </div>
+      <ul>
+        <li><a href='http://www.theloop.ca'>www.theloop.ca</a> vs <a href='http://m.theloop.ca'>m.theloop.ca</a></li>
+        <li>Quelles sont les différences entre vos expériences d'utilisateurs ?</li>
+        <li>Que remarquez-vous au niveau de la navigation, du contenu et des images?</li>
+        <li>Naviguez-vous aisément ? Quelles sont vos observations ?</li>
+      </ul> 
+      </section>
+    </div>
+    
+    <div class='slide' id='ex1-cont'>
+      <header><h1>Discutons sur les différences</h1></header>
+      <section>
+        <p>Que remarquez-vous au niveau de la navigation, du contenu et des images?</p>
+        <ul>
+          <li>moins de contenu sur mobile; moins dense</li>
+          <li>images sont redimensionnées</li>
+          <li>barre de navigation et une structure réorganisée</li>           
+        </ul>	
+        <p>Essayez-en d'autres!</p>
+        <ul>
+          <li><a href='http://m.facebook.com'>m.facebook.com</a></li>
+          <li><a href='http://cbc.ca'>CBC.ca</a></li>
+        </ul>
+        <p>Inversement, essayez et visitez <a href='http://m.facebook.com'>m.facebook.com</a> sur votre laptop and voyez ce qui se passe. Ça a un bien drôle d'air sur un ordi!</p>
+      </section>
+    </div>
+	
+    <div class='slide' id='native-vs-web'>
+      <header><h1>Apps en langage natif vs. app web en HTML5 </h1></header>
+      <section class='middle'>
+      <img src='assets/html5_vs_native.jpg' style='max-width:96%;'/>
+      </section>
+    </div>
+    
+    <div class='slide' id='native-apps'>
+      <style>
+        #native-apps {
+          background:url('assets/dist_channels_native.png') center bottom no-repeat;
+          background-size:80% auto;
+        }
+      </style>
+      <header><h1>Applications en langage natif</h1></header>
+      <section>
+        <p>Les apps mobiles sont codées dans un langage propre à leur support.</p>
+        <p>Chaque appareil possède son propre langage (son code natif): Java [BlackBerry &amp; Android], Objective-C [iOS]</p>
+      </section>
+    </div>
+     <div class='slide' id='native-apps2'>
+      <header><h1>Apps natives - Réseaux de ditributions</h1></header>
+      <section>
+        <p>On se procure les applications sur des réseaux de distribution ("app store") spécifiques.</p>
+         <img src='assets/android_playstore.png' style='height:320px' /> <img src='assets/apple_appstore.png' style='height:380px' /> <img src='assets/appWorld.jpg'` style='height:300px' />
+      </section>
+    </div>
+    <div class='slide' id='html5'>
+      <style>
+        #html5 {
+          background:url('assets/html5_logo.png') right 50px no-repeat;
+          background-size:350px auto;
+        }
+      </style>
+      <header><h1><em>Web apps</em> &amp; HTML5 </h1></header>
+      <section>
+        <p>Les prochaines versions de ces technologies:</p>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Javascript</li>
+        </ul>
+        <p>En combinaison pour produire des <em>web apps</em></p>
+        <p>Conçues pour fonctionner sur des appareils à batteries</p>
+        <p>Pas de réseau de distribution officiel pour les apps en HTML5</p>
+        <p>PhoneGap et Appcelerator - peuvent transformer vos apps HTMLS en app natives</p>
+        <p>Site web mobile -> Expérience de l'application</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='html52'>
+      <header><h1>HTML5 &amp; Apps Web - Réseaux de distribution</h1></header>
+      <section>
+        <br /><br /> 
+        <p>Pas d'officiel "appstore"</p>
+        <p>Besoin de faire plus de promotions</p>
+        <img src='assets/openappmkt.png'  style='height:300px' /> <img src="assets/chrome_webstore.png" style="vertical-align:top; height:220px;" /> 
+        <p>Chrome Webstore/Google Play, Opera's Widgets</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='html5-vs-native'>
+      <header><h1>Lequel choisir?</h1></header>
+      <section>
+        <div class='col'>
+          <h2>Native</h2>
+          <ul>
+            <li>Entièrement construites pour leurs plateformes (BlackBerry, iOS, Android, Windows Phone)</li>
+            <li>Dependant de modèle de l'appareil (eg. iOS 5 vs iOS 6)</li>
+            <li>Réseau de distribution aidant au marché (Appstore, Market)</li>
+            <li>Plus grande flexibilité; utilisation des fonctions de l'appareil. ex: Camera/mail</li>
+            <li>Plus grand coût de développement et de temps.</li>
+          </ul>
+        </div>
+        <div class='col'>
+          <h2>HTML5</h2>
+          <ul>
+            <li>Simplement un site web - tous les appareils ont un navigateur (tous!)</li>
+            <li>Peu importe le navigateur de l'apparareil, des standards existent</li>
+            <li>Possibilité de modifications en tout temps - les apps natives demandent une mise à jour complète</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    
+    <div class='slide' id='website-setup'>
+      <header><h1>Jetons un oeil à notre site !</h1></header>
+      <section>
+        <br /><br />
+        <img src='assets/setup.png' style='height:350px' /> <img src='assets/setup_mobile.png'  style='height:300px' /> 
+      </section>
+    </div>
+    
+    <div class='slide' id='ex2-preamble'>
+      <header><h1>Exercice #2</h1></header>
+      <section>
+        <p>Pratiquons le chargement de notre site web sur votre appareil mobile!</p>
+        <p>Prenez le Client FTP et créez la connexion avec les informations ci-dessous</p>
+        <p>Host: <strong>m.ladieslearningcode.com</strong></p>
+        <p>Username/ Nom d'utilisateur: <strong>llc</strong></p>
+        <p>Password/Mot de passe: <strong>helloworld</strong></p>
+        <p><strong>Créez un dossier</strong></p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex2-preamble-upload'>
+      <header><h1>Exercice #2</h1></header>
+      <section>
+        <ol>
+          <li><em>Drag'n'Drop</em>(glissez-déposez) les fichiers à téléverser (à partir du dossier <em>Ladies Learning Code</em> que vous avez déjà)</li>
+          <li>Téléverser les <em>contenus</em> du <code>llc_package</code></li>
+          <li>Ouvrez le navigateur de votre mobile et entrez l'URL <pre>http://m.ladieslearningcode.com/NOMDUFICHIER</pre></li>
+        </ol>
+      </section>
+    </div>
+    
+    <div class='slide' id='bookmark'>
+      <header><h1>Rendons-le accessible</h1></header>
+      <section>
+        <p>Rendons notre site accessible à partir de l'écran d'accueil</p>
+        <h3>iOS (iPod touch et iPhones)</h3>
+        <ol>
+          <li>Appuyez sur l'icône au centre de la barre du bas</li>
+          <li>Selectionnez <em>'Add to Home Screen'</em></li>
+        </ol>
+        <img src='assets/addtohomescreeniphone.jpeg'  style='height:300px' /> <img src='assets/addtohomescreeniphone2.jpeg'  style='height:300px' />
+
+      </section>
+    </div>
+  
+    <div class='slide' id='ex3-homescreen_Android'>
+      <header><h1>Ex #2 continuons - anciens Androids</h1></header>
+      <section>
+        <ol>
+          <li>Appuyez sur le bouton menu de l'appareil et sélectionnez "Ajoutez aux favoris"</li>
+          <li>Appuyez sur le bouton menu de l'appareil et sélectionnez "Favoris"</li>
+          <li>Appuyez et retenez le "Favoris" et sélectionnez "Ajoutez un raccourci à l'accueil"</li>
+        </ol>
+        <img src='assets/addbookmarkAndroid.jpeg'  style='height:300px' /> <img src='assets/bookmarksAndroid.jpeg'  style='height:300px' /> <img src='assets/addshortcuttoHomeAndroid2.jpeg'  style='height:300px' />
+        <p>Pour les plus récents Androids: ajoutez un widget de favoris</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex3-homescreen_BB'>
+      <header><h1>Ex #2 suite - BlackBerry</h1></header>
+      <section>
+        <ol>
+          <li>Cliquez sur le bouton menu du BlackBerry.</li>
+          <li>Cliquez sur "Add to Home Screen"</li>
+        </ol>
+        <img src='assets/addtohomescreenbb.png' style='height:400px' /> 
+      </section>
+    </div>
+    
+    <div class='slide' id='building-for-mobile-web'>
+      <section>
+      <h2 style='font-size:50px;color:#b1009a;text-align:center;'>Construire le Web mobile</h2>
+      <p style='text-align:center;'>
+        <br />
+        <img src='assets/responsive_web_design.gif' style='height:400px' /> 
+      </p>
+      </section>
+    </div>
+    <div class='slide' id='responsive-web'>
+      <section>
+      <h2 style='font-size:50px;color:#b1009a;text-align:center;'>Qu'est-ce que le "Responsive"</h2>
+        <p style='text-align:center;font-size:35px;'><br><br>Un site responsive change son apparence et sa structure en fonction de la taille de l'écran de l'appareil sur lequel il apparait.</p>
+      </section>
+    </div>
+    <div class='slide' id='magicweb'>
+      <section>
+      <h2 style='font-size:50px;color:#b1009a;text-align:center;'>C'est magique!</h2>
+        <p style='text-align:center;'><img src='assets/itsmagic.jpg' style='height:400px' /> 
+          <br>Essayez ceci: <a href="http://www.smashingmagazine.com/">www.smashingmagazine.com</a>
+        </p>
+      </section>
+    </div>
+    <div class='slide' id='determine-media-theory'>
+      <header><h1>Determiner ce que l'usager utilise</h1></header>
+      <section>
+        <p>Puis-je rendre mon site plus intelligent?  Peut-il déterminer ce que l'usager utilise?</p>
+        <p><a href='http://www.xtremelabs.com'>www.xtremelabs.com</a> - desktop vs. mobile </p>
+        <img src='assets/xldesktop.png'  style='height:350px' /> <img src='assets/xlmobile.png' style='height:350px' />
+      </section>
+    </div>
+    
+    <div class='slide' id='media-query'>
+      <header><h1>Determiner ce que l'usager utilise</h1></header>
+      <section>
+        <h2>Avec ------> CSS3 Media Queries</h2>
+        <img src='assets/mediaqueries_llc.png' style='height:500px' />
+      </section>
+    </div>
+    
+    <div class='slide' id='determine-media'>
+      <header><h1>Determiner ce que l'usager utilise</h1></header>
+      <section>
+        <h2>CSS3 Media Queries</h2>
+        <p>Entre les balises <code>&lt;head&gt;</code> de votre site, où vous incluez votre feuille de style</p>
+        <p>Ajoutez un peu de logique - une question fermée : oui ou non - pour savoir quelle feuille de style choisir</p>
+        <pre>&lt;link rel='stylesheet' href='desktop.css' 
+      media='screen and (min-width: 801px;)' /&gt;</pre>
+        <p>"Affichez-vous sur un <strong>écran</strong> et votre écran est-ils plus grand que <strong>801px</strong>?"</p>
+        <p>La 'taille minimale d'écran supportée" est 801px -- ou plus</p>
+        <p>CSS Media Queries nous permet d'interroger le navigateur sur les tailles qu'il supporte.</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex3-support'>
+      <header><h1>Exercice #3 - Quel appareil suis-je?</h1></header>
+      <section>
+        <p>Nous ouvrirons une page sur notre ordi et sur notre mobile. Cette même page aura un affichage différent dépendamment de la taille de l'écran sur laquelle elle sera affichée.</p>
+        <p>Pour cet exercice, nous avons aussi inclu le code pour une tablette -- si vous en avez une avec vous</p>
+        <br />
+        <h2>Ouvrez http://m.ladieslearningcode.com/YOURFOLDER/check.html sur votre ordi et vos autres appareils.</h2>
+        <br />
+        <p>Que voyez-vous?</p>
+        <p>Regardez le code source -- <em>CSS media queries</em>.</p>
+        <pre>@media screen and (max-width: 800px)
+@media screen and (min-width: 768px) and (max-width: 1024px)
+@media screen and (min-width: 1025px)</pre>
+      </section>
+    </div>
+    <div class='slide' id='ex3-support-mywebsite'>
+      <header><h1>Comment appliquer cette théorie à mon site web?</h1></header>
+      <section>
+        <br><br>
+        <p>Génial! maintenant que nous savons comment utiliser un <em>Media Queries</em>, comment appliquer cette théorie à son site web?</p>
+        <p></p>
+        <br />
+       <img src='assets/ex4-mobile.png' style='height:300px' /> vs <img src='assets/ex4-desktop.png' style='height:300px;' />
+      </section>
+    </div>
+    <div class='slide' id='mediaquery-llc'>
+      <header><h1>Génial! Mais comment appliquer cette théorie à son site web?</h1></header>
+      <section>
+        <br>
+        <p></p>
+       <img src='assets/mediaqueries_llc.png'  style='height:400px' /> 
+      </section>
+    </div>
+    
+    <div class='slide' id='ex5-activate-mobile-style'>
+      <style>
+        h3.ftp {
+          background:url('assets/ftp.png') 0 0 no-repeat;
+          display:block;
+          padding:0 0 0 70px;
+          line-height:50px;
+        }
+      </style>
+      <header><h1>Exercice #4 - Activer le CSS pour les appareils mobiles</h1></header>
+      <section style="margin-top: 135px">
+        <p>La partie que vous attendiez toutes! Il est temps d'utiliser nos connaissances des <em>Media Queries</em> pour activer le style approprié aux mobiles.</p>
+        <h3>mobile.css</h3>
+        <p>Il y a un fichier dans votre dossier de base appelé 'mobile.css'. Ce sera votre feuille de style pour les appareils mobiles.</p>
+        <p>Dans <strong>index.html</strong>, en haut vous verrez un commentaire "exercice #4", nous écrirons ce qui suit juste en dessous de ce commentaire:</p>
+        <pre>&lt;link rel='stylesheet' href='mobile.css' 
+      media='screen and (max-width: 800px)'&gt;</pre>
+      <p>Cela devrait activer la feuille de style mobile.css dédié aux appareils dont l'écran a une taille de 800px ou moins</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex5-desktop'>
+      <header>Exercice #4 - Changez aussi la version Desktop</header>
+      <section style="margin-top: 135px">
+        <p>Nous allons aussi modifier la partie au dessus du fichier <code>desktop.css</code></p>
+        <p>Changez cette ligne pour:</p>
+        <pre>&lt;link rel='stylesheet' href='desktop.css' 
+      media='screen and (min-width: 801px)' /&gt;</pre>
+        <p>Cela signifie que le fichier desktop.css ne sera activé seulement lorsque la taille de l'écran aura plus de 801px de large</p>
+        <h3 class='ftp'>Téléversons notre travail et jetons un oeil au résultat sur votre mobile</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='mobile-design-note-1'>
+      <header><h1>Note #1 sur le design pour les mobiles</h1></header>
+      <section>
+        <p>l'espace limité de l'écran rend impossible l'affichage d'un site fait pour desktop!</p>
+        <br />
+        <p style='text-align:center;'>
+        <img src='assets/iphone.jpg' style='height:150px'/>    VS     <img src='assets/desktop.jpg' style='height:400px' />
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='what-to-focus-on0'>
+      <header><h1>Se concentrer sur quoi?</h1></header>
+      <section>
+        <p style='text-align:center;'>
+        <img src='assets/focus.jpg' style='height:300px' />
+        </p>
+        <ul>
+          <li>Quels sont les éléments les plus importants à l'écran?</li>
+          <li>Que voulez-vous que vos usagers voient?</li>
+          <li>Comment utiliseront-ils votre site web?</li>
+        </ul>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex6-designing-for-small-screens'>
+      <header><h1>Excerice #5 - Qu'est-ce qui est le plus important ?</h1></header>
+      <section style="margin-top: 135px">
+        <p>Discutons ce qui devrait être primordial</p>
+        <ul>
+          <li>Où mettre le panier d'achats? les catégories?</li>
+          <li>Qu'est-ce que vos usagers utiliseront le plus souvent?</li>
+          <li>Il existe une infinité de techniques pour arriver à vos fins -- tout est possible!</li>
+        </ul>
+      </section>
+    </div>
+  
+    <div class='slide' id='what-to-focus-on'>
+      <header><h1>Sur quoi devrait-on se concentrer?</h1></header>
+      <section>
+        <p>Des éléments clés à considérer:</p>
+        <ul>
+          <li>Disposition des colonnes</li>
+          <li>Navigation</li>
+          <li>Les listes</li>
+          <li>Les images doivent être <em>mobile friendly</em></li>
+        </ul>
+        <p>Utilisez ces techniques CSS:</p>
+        <ul>
+          <li>Empilez les colonnes</li>
+          <li>Dissimulez le contenu superflu</li>
+          <li>Positionez les éléments à la verticale</li> 
+        </ul>
+      </section>
+    </div>
+    
+    <!-- CSS INTRO -->
+    
+    <div class='slide' id='what-is-css'>
+      <header><h1>C'est quoi déjà le CSS?</h1></header>
+      <section>
+        <p style='text-align:center;'>
+          <img src='assets/whatiscss.jpeg' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+
+    <div class='slide' id='what-is-css2'>
+      <header><h1>HTML (Structure)  vs CSS  (Style)?</h1></header>
+      <section>
+        <br/>
+        <p style='text-align:center;'>
+        <img src='assets/houseStructure.jpg' style='height:200px'/>  vs  <img src='assets/housestyle1.jpeg' style='height:150px'/><img src='assets/housestyle2.jpeg' style='height:150px'/>
+        <br/><br /></p>
+        <p>Nous utilisons index.html pour la structure du site mobile et mobile.css/desktop.css pour son style.</p>
+      </section>
+    </div>
+  
+    <div class='slide' id='what-is-css3'>
+      <header><h1>Les bases du HTML</h1></header>
+      <section>
+        <ul>
+        <li>Une page HTML page contient des <em>éléments</em> communément appelés <em>tags</em>/Balises</li>
+        <li><code>&lt;p&gt; ... &lt;/p&gt;</code> - paragraphes</li>
+        <li><code>&lt;a href=""&gt; ... &lt;/a&gt;</code> - liens</li>
+        <li><code>&lt;div&gt; ... &lt;/div&gt;</code> - divs "divisions du contenu'"</li>
+        <li>aEt beaucoup plus!</li>
+        </ul>
+        <p>Ces balises HTML définissent la <em>structure</em> de votre page</p>
+        <pre>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ma page merveilleuse&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Premier Paragraphe&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p>Remarquez comment les balises sont imbriquées les unes au-dessus des autres (<em>nesting</em>) et comment elle se ferment.</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-intro-4'>
+      <header><h1>Combinez Structure et Style</h1></header>
+      <section>
+        <p>Comment styliser vos éléments HTML avec du CSS?</p>
+        <pre>&lt;p class='my-css-class'&gt;</pre>
+        <p>Vous pouvez styliser tous les éléments ou les différencier avec des <em>classes</em></p>
+        <pre>p.my-css-class {
+  color:blue;
+}</pre>
+        <p>Voici un bloc de CSS. Les accolades entourent des <em>propriétés</em></p>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-intro-5'>
+      <header><h1>Exemple</h1></header>
+      <section>
+        <pre>&lt;p&gt;Je suis tout bleu!&lt;/p&gt;
+&lt;p class='yellow'&gt;Je suis jaune:)&lt;/p&gt;</pre>
+        <pre>p {
+  color:blue;
+}</pre>
+        <pre>p.yellow {
+  color:blue;
+  background-color:yellow;
+}</pre>
+        <p>Produces:</p>
+        <p style='color:blue;'>Je suis tout bleu!</p>
+        <p style='color:blue;background:yellow;'> Je suis jaune :)</p>
+        <p>En CSS, <code>&lt;p class='yellow'&gt;</code> devient <code>p.yellow</code></p>
+        <p>Si 'p' est spécifié, le style s'applique à toutes les balises 'p'.</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-intro-6'>
+      <header><h1>Plus qu'une classes</h1></header>
+      <section>
+        <p>Vous pouvez donner plus qu'une classe à un élément</p>
+        <pre>&lt;p class='yellow purple'&gt;Je suis mauve et jaune&lt;/p&gt;</pre>
+        <p>CSS:</p>
+        <pre>p {
+  color:blue;
+}
+p.yellow {
+  background-color:yellow;
+}
+p.purple {
+  color:purple;
+}</pre>
+        <p style='background:yellow;color:purple'>Je suis mauve et jaune</p>
+        <p>Notez comment <code>color:blue;</code> a été dépassé</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-intro-7'>
+      <header>Le pouvoir du CSS</header>
+      <section>
+        <p>Si nous séparons la structure et le style de notre site web, il devient facile de changer la feuille de style.</p>
+        <h2>Essayons-le !</h2>
+        <ol>
+          <li>Dans <code>index.html</code>, au lieu d'utiliser desktop.css, remplacez-le par: desktop_nocturnalcss </li>
+          <li>Rafraîchissez la page dans votre navigateur</li>
+        </ol>
+        <p>Les seuls changements sont au niveau des couleurs et pas du HTML</p>
+      </section>
+    </div>
+  
+    <div class='slide' id='website-css-overview'>
+    <!-- <section> -->
+        <p style='text-align:center;'>
+          <img src='assets/websitestructure.png' style='height:650px'/>
+        </p>
+      <!-- </section> -->
+       </div>
+    <!-- END CSS/HTML -->
+    
+    <div class='slide' id='LargeImages'>
+      <header><h1>Cette entête est beaucoup trop grosse !!!</h1></header>
+      <section>
+        <p>Les tailles d'écrans de desktop vs. mobile sont vraiment différentes</p>
+        <p>Cette entête est trop grosse -- elle prend tout l'espace de l'écran!</p>
+        <img src='assets/bigHeader.png' style='height:400px'/>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex7-screen-sizes'>
+      <header><h1>#6: Les images qui sont <em>Mobile Friendly</em></h1></header>
+      <section>
+        <h3>Nous pouvons ajuster la largeur des images de notre document facilement en utilisant la feuille de style.</h3>
+        <ol>
+          <li>Dans <strong>mobile.css</strong> nous volons trouver la classe CSS du <code>.header</code> et changer la position de son arrière-plan.</li>
+          <li>Vous trouverez une plus petite image là:<code>images/mobile</code> nous l'utiliserons.</li>
+          <li>Changez <code>url('images/header.png')</code> pour <code>url('images/mobile/header.png')</code></li>
+          <li>le <code>height: 240px;</code> doit aussi être changé, pour que la hauteur de l'image soit <strong>80px</strong>.</li>
+        </ol>
+        <h3 class='ftp' style='line-height:normal'>Téléversez et vérifiez sur vos appareils. Le site a encore l'air étrange, mais l'image est plus petite ! Nous progressons :) </h3>
+      </section>
+    </div>
+    
+    <!-- EXERCISE 8 -->
+    
+    <div class='slide' id='mobile-design-linear-theory'>
+      <header><h1>Le desin pour mobile #2 - Pensez vertical !</h1></header>
+      <section>
+        <p>Quand vous réorganisez des éléments pour petits écrans, placez-les un en dessous de l'autre.</p>
+        <p>Squeezé un à côté de l'autre  ===> mauvaise idée!</p>
+        <img src='assets/mobile_linearization.png' style='height:400px'/> 
+        </section>
+    </div>
+    
+    <div class='slide' id='css-brief-floats'>
+      <header><h1>Plus de CSS - les <em>Floats</em></h1></header>
+      <section>
+        <p>Les <em>Floats</em> permettent de changer la position normale d'un élément HTML vers le haut, le bas, la gauche ou la droite.</p>
+        <img src='assets/floats.png' style='margin:60px auto;display:block;' />
+        <p>Ils sont utile pour créer des colonnes comme dans notre site en version <em>desktop</em>.</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-brief-block'>
+      <header><h1>Plus de CSS - le positionnement (<em>Display</em>)</h1></header>
+      <section>
+        <p>Certains éléments HTML s'alignent naturellement à l'horizontale (<em>inline</em>). Les éléments <em>inline</em> ne supportent généralement pas les propriétés de hauteur, largeur et rembourrage (<em>padding</em>). Les éléments de type <em>block</em>, eux, auront tendance à prendre le plus d'espace possible en largeur.</p>
+        <img src='assets/inline_and_block.png' style='display:block;margin:30px auto;' />
+      </section>
+    </div>
+    
+    <div class='slide' id='css-brief-inline-block'>
+      <header><h1><em>Display: inline-block;</em></h1></header>
+      <section>
+        <p>Vous pouvez combiner les 2 comportements. Ici les <div> devraient avoir une hauteur et une largeur (comme nos items).</p>
+        <img src='assets/inlineblock.png' style='display:block;margin:10px auto;' />
+      </section>
+    </div>
+    
+    <div class='slide' id='mobile-design-linear'>
+      <header><h1>Design pour le Mobile  - Linéaire</h1></header>
+      <section>
+        <p>Utilisez vos connaissances de <code>display:</code> pour positionner vos items un à un verticalement sur l'écran</p>
+        <p>Aussi, utilisez les <code>float:</code> pour placer le menu de côté (<em>sidebar</em>) et le contenu en en dessous de l'autre.</p>
+        <img src='assets/linear.png' style='display:block;margin:0 auto;' />
+        </section>
+    </div>
+    <div class='slide' id='ex7-linearize'>
+      <header><h1>Exercice #7 - Tout en une seule colonne</h1></header>
+      <section>
+        <p style='text-align:center;'>Dans mobile.css, on doit cibler <code>.container</code>, <code>.content</code>, et <code>.sidebar</code>, 
+          <br>  <img src='assets/websitestructure2.png' style='height:600px'/>
+        </p>
+         
+      </section>
+    </div>
+    <div class='slide' id='ex7-cont'>
+      <header><h1>Exercice #7 - Tout en une seule colonne</h1></header>
+      <section>
+        <p>La section <code>.container</code> dans le CSS a une largeur fixe.</p>
+        <p>Ce qui force notre structure à s'élargir jusqu'à 960px.</p>
+        <pre>.container {
+  ...</pre>
+        <p>Enlevez le <code>width: 960px;</code></p>
+        
+      </section>
+    </div>
+    <div class='slide' id='ex7-linearize2'>
+      <header><h1>Exercice #7 - Tout en une seule colonne</h1></header>
+      <section>
+        <p>Utilisez la propriété <code>width</code> ici n'est pas trop sensé. Nous voulons seulement utiliser tout l'espace disponible.</p>
+        <h3>Modifiez <code>width:</code> et <code>float:</code> (ou float:none;)</h3>
+        <pre>.sidebar {
+  ...</pre>
+        <p>Faites-le aussi pour <code>.content</code></p>
+        <pre>.content {
+  ...</pre>
+       <!--
+        <p>The items...</p>
+        <pre>.item {
+  display:block;</pre>-->
+        <h3 class='ftp'>Téléversons tout ce travail et observons-le. Téléversez seulement mobile.css</h3>
+      </section>
+    </div>
+    
+    
+
+    <div class='slide' id='ex7-checkit'>
+      <header><h1>Encore ce look bizarre!</h1></header>
+      <section>
+        <p>Qu'est-ce qui se passe? Ca devrait aller maintenant?</p>
+        <h3>Les navigateurs sur mobile essayent d'être intelligent avec leurs "zoom to fit screen" (zoom sur le contenu pour l'adapter à la taille de l'écran).</h3>
+        <p>L'appareil essaie d'être intelligent et de vous en montrer le plus possible... mais on ne veut pas ça !</p>
+        <img src='assets/no-viewport.png' style='height:400px;margin:10px auto;'/> <img src='assets/ios7weird2.jpg' style='height:400px;margin:10px auto;'/>
+      </section>
+    </div>
+    
+    <div class='slide' id='zoomtofit'>
+      <header><h1><em>"Zoom to Fit" vs "Zoom to Actual Size"</em></h1></header>
+      <section>
+        <p><strong>Zoom to fit screen</strong>:Le contenu est ajusté (à 50%), c'est une vue d'oiseau pour voir l'ensemble du contenu.</p>
+        <p><strong>Zoom to actual size</strong>: On voit le contenu à sa taille réelle (100%) </p>
+        <p>On doit spécifier le comportement voulu au navigateur.
+        <img src='assets/zoomtofit.png' style='height:350px'/> vs  <img src='assets/zoomtoActualSize.png' style='height:350px'/> 
+      </section>
+    </div>
+    
+    <div class='slide' id='ex8-viewport-pre'>
+      <header><h1>Le <em>Viewport</em></h1></header>
+      <section>
+        <p>La taille de l'écran de mon navigateur, le <strong>('visual viewport')</strong> est de 320px</p>
+        <p>Nous devons préciser le comportement que nous souhaitons pour le contenu avec 'zoom-to-actual-size' (100%)</p>
+        <p>Restrict the amount of content <strong>(layout viewport)</strong> the browser will scale to, to the <strong>visual viewport</strong></p>
+        <img src='assets/viewport.png' style='display:block;margin:0 auto;' />
+      </section>
+    </div>
+  
+    <div class='slide' id='ex8-cont-change-viewport'>
+      <header><h1>Exercice #8 - Une seule ligne</h1></header>
+      <section>
+        <p>Ouvrons: <code>index.html</code></p>
+        <p>Nous ajouterons une seule ligne de code dans le <code>&lt;head&gt;</code> de notre document HTML</p>
+        <p><strong>Trouvez le commentaire <code>&lt;!-- Exercise #8 --&gt;</code> situé dans index.html</strong></p>
+        <pre>&lt;head&gt;
+  ...
+  
+  &lt;!-- Exercice #8 --&gt;
+  &lt;meta name='viewport' content='initial-scale=1, maximum-scale=1' /&gt;
+  
+&lt;/head&gt;</pre>
+        <p>Ce qui signifie: "Initialisez la fenêtre de contenu visible du navigateur à 1X sa taille, et empêcher le grossissement au delà de 1"</p>
+        <h3 class='ftp'>Téléversez seulement index.html et jetez un oeil. Que voyez-vous?</h3>
+      </section>
+    </div>
+    <div class='slide' id='ex8-post-weird'>
+      <header><h1>Que voyez-vous?</h1></header>
+      <section>
+        <p style='text-align:center;'>
+        <br/><br/>
+        <img src='assets/touchpoint.png' style='height:400px'/>
+         <img src='assets/ios7weird1.jpg' style='height:400px'/>
+          <img src='assets/ios7weird3.jpg' style='height:400px'/>
+          <br>Note: iOS 7 Safari bogue un peu, fermez-le et réouvrez-le. 
+        </p>
+      </section>
+    </div>
+    <div class='slide' id='ex8-post-awesome'>
+      <header><h1>Que pensez vous de ces liens?</h1></header>
+      <section>
+        <p style='text-align:center;'>
+        Vous pouvez cliquer aisément?<br/><br/>
+        <img src='assets/touchpoint.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='mobile-design-touch-area'>
+      <header><h1>Zones tactiles - Problèmes de gros doigts</h1></header>
+      <section>
+        <p>les <em>touch area</em> sont trop petites</p>
+        <p style='text-align:center'><img src='assets/mousepointer.jpg' /> vs. <img src='assets/touchscreen.jpg' /></p>
+        <p>Le pointeur de la souris a une précision d'<strong>1 pixel</strong>. </p>
+        <p>Notre doigt a besoin d'au moins <strong>44px x 44px</strong> pour être précis.</p>
+        <h3>Nous devons nous assurer que les éléments avec lequel nous devons interagir ont cette taille</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='css-brief-margins-padding'>
+      <header><h1>Encore plus de CSS - <em>Margins</em> et <em>Padding</em></h1></header>
+      <section>
+        <p><em>Margins</em> et <em>Padding</em> (marges et rembourrage) sont utilisés pour créer de l'espace <em>entre</em> entre les éléments et <em>à l'intérieur</em> des éléments.</p>
+        <p>Voici le 'box model'. Une boîte utilise les marges pour se distancier des autres éléments et utilise le rembourrage pour créer de l'espace entre ses bordures.</p>
+        <img src='assets/boxmodel.png' style='display:block;margin:10px auto;' />
+      </section>
+    </div>
+    
+    <div class='slide' id='css-brief-padding'>
+      <section>
+        <h3 style='color:#b1009a;font-size:24px;'>Super important pour plus tard</h3>
+        <p>Si la largeur de la boite est définie à 200px, par exemple, et qu'un <em>padding</em> est ajouté, la taille de la boîte sera plus grande.</p>
+        <p>Donc si nous disons <code>padding:10px;</code>la boîte fera 220px de large. Nous devrons nous en souvenir au moment de l'alignement.</p>
+        <p>Detail très important: <a href='http://www.w3.org/TR/CSS2/box.html'>http://www.w3.org/TR/CSS2/box.html</a></p>
+        <h3>Une Alternative</h3>
+        <p>Récemment, la propriété CSS <code>box-sizing: border-box;</code> (IE8+, any Chrome, Safari 5.1+ (webkit-box-sizing en version antérieure), Opera 8.5+).</p>
+        <p>Nous permet de considérer le <em>box model</em>différemment <strong>l'ajout de padding n'aura plus d'impact sur la largeur/hauteur de l'élément.</strong></p>
+        <p><a href="http://css-tricks.com/box-sizing/">Plus d'information</a></p>
+      </section>
+    </div>
+
+    <div class='slide' id='ex10-touch-area'>
+      <style>
+        #ex10-touch-area {
+          background:url('assets/padding_touch.png') bottom right no-repeat;
+        }
+      </style>
+      <header><h1>Exercice #9 - Agrandir la zone tactile</h1></header>
+      <section>
+        <p>Pour cet exercice, nous nous concentrerons sur la section <code>.categories</code> dans <code>mobile.css</code></p>
+        <p>Rappel: ajouter un <strong>padding</strong> pour augmenter la taille des éléments</p>
+        <p>Mais, n'oubliez pas<strong>les éléments qui ne sont pas de type Block ne supportent pas le padding</strong>. On va devoir les convaincre avec <code>display:block;</code></p>
+        <pre>.categories ul li a {
+  /* Exercise #9 */
+  display:block;
+  padding:14px;
+  font-size:16px; /* augmenter la taille de la police pour + de lisibilité */
+  background-color:#eee; /* Ajout d'un arrière-plan  */</pre>
+        <p><code>padding:14px;</code> est la clef, ici. L'ajout de 14 pixels d'espace autour du texte, dans la 'box'</p>
+        <h3 class='ftp' style='line-height:normal'>Téléversez et voyez par vous-même! Touchez à vos 'boxes'<br>et remarquez ce qui se distingue.</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='way-to-much'>
+      <header><h1>Trop de <em>Scrolling</em>!</h1></header>
+      <section>
+        <p>Ça prend tellement d'effort pour faire tout dérouler vers le bas !</p>
+        <p>Les usagers d'appareils mobiles sont habitués de devoir <em>scroller</em>, mais ne leur faites pas défiler mille éléments de menu avant de leur permettre d'accéder au contenu.</p>
+        <p style='text-align:center;'>
+        <img src='assets/bigger-touch.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='break-it-up'>
+      <header><h1>Récapitulons</h1></header>
+      <section>
+        <p style='text-align:center'>
+        <img src='assets/breakuppages.png' style='height:550px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='add-a-nav-bar'>
+      <header><h1>Navigation simple</h1></header>
+      <section>
+        <p style='text-align:center'>Ajoutons une barre de navigation<br/><br/>
+        <img src='assets/nav-bar.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+
+    <div class='slide' id='breakoutCategories'>
+      <header><h1>Créer des Catégories</h1></header>
+      <section>
+        <p style='text-align:center'>Créons des catégories de pages<br/><br/>
+        <img src='assets/page-cats.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex10-break-out-cats'>
+      <header><h1>Exercice #10 Partie 1</h1></header>
+      <section>
+        <p>Commencez par créer une page pour lister vos catégories.</p>
+        <ol>
+          <li>Depuis <code>index.html</code>, copiez <code>&lt;div class='categories'&gt;</code><br> jusqu'à <code>&lt;!-- end categories --&gt;</code></li>
+          <li>Collez dans votre page <code>cats.html</code> comme le commentaire l'indique</li>
+          <li>Changez les liens pour cibler les pages que nous allors créer...
+            <ul>
+              <li><code>&lt;a href='#candy'&gt;Candy&lt;/a&gt;</code> to <br><code>&lt;a href='candy.html'&gt;Candy&lt;/a&gt;</code></li>
+              <li><code>&lt;a href='#apparel'&gt;Apparel&lt;/a&gt;</code> to <br><code>&lt;a href='apparel.html'&gt;Apparel&lt;/a&gt;</code></li>
+            </ul></li>
+        </ol>
+      </section>
+    </div>
+    
+    <div class='slide' id='breakoutlist'>
+      <header><h1>Créez <em>Candies and Apparels</em></h1></header>
+      <section>
+        <p style='text-align:center'>Créez la page <em>Candies and Apparels</em><br/><br/>
+        <img src='assets/page-candy.png' style='height:400px'/> <img src='assets/page-apparel.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex10-candy-apparel'>
+      <header><h1>Ex #10 Partie 2</h1></header>
+      <section>
+        <p>Pour chaque <em>candy/apparel</em>, faites comme suit:</p>
+        <ol>
+          <li>Copiez du commentaire <code>&lt;!-- Candy (or Apparel) --&gt;</code> jusqu'à <br><code>&lt;!-- end Candy (or Apparel) --&gt;</code> </li>
+          <li>Copiez dans les pages respectives <code>candy.html</code> et <code>apparel.html</code>, après le commentaire.</li>
+        </ol>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex10-p3-cart'>
+      <header><h1>Ex #10 Partie 3</h1></header>
+      <section>
+        <p>Bougeons le panier d'achats</p> 
+        <ol>
+          <li>Copiez <code>&lt;div class='cart'&gt;</code> jusqu'à et en incluant <code>&lt;!-- end cart --&gt;</code></li>
+          <li>Copiez dans <code>cart.html</code> à l'endroit indiqué</li>
+        </ol>
+        <img src='assets/page-cart.png' style='display:block;margin:0 auto;height:400px;' />
+      </section>
+    </div>
+    
+   <div class='slide' id='hidecontent'>
+      <header><h1>Éliminez le contenu superflu</h1></header>
+      <section>
+        <p style='text-align:center'><br/><br>
+        <img src='assets/nav-bar.png' style='height:400px'/>
+        </p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex10-rearrange-content'>
+      <header><h1>Ex #10 Partie 4 - Dissimuler le contenu</h1></header>
+      <section>
+        <p>La clée (et le défi) est de modifier <code>index.html</code> et la feuille de style CSS pour que:</p>
+        <ul>
+          <li>La version <em>desktop</em> reste impeccable</li>
+          <li>La version mobile soit tel que désiré</li>
+        </ul>
+        <h3>Nous utiliserons les classes CSS pour distinguer les portions de HTML <br><em>desktop-only/mobile-only</em> à afficher.</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex10-p4-cont'>
+      <header><h1>Ex #10 Partie 4 - Le HTML et le CSS</h1></header>
+      <section>
+        <p><strong>Dans <code>index.html...</code></strong></p>
+        <p>Nous ajouterons des classes CSS pour aisément montrer/cacher certains éléments.
+         <strong>Devant <code>div class='categories'</code></strong></p>
+        <pre>&lt;div class='categories desktop-only'&gt;</pre>
+        <p>dans <strong>mobile.css</strong>, à la marque <code>/* Exercice #11 */</code>:</p>
+        <pre>.desktop-only {
+  display:none;
+}</pre>
+        <p>Ceci va cacher tous les éléments qui ont la classe'desktop-only' dans la version du site mobile.</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex11-cont-2'>
+      <header><h1>Ex #10 Partie 5 - Créer une barre de navigation</h1></header>
+      <section style="margin-top:117px">
+        <p>Enfin, nous allons créer une barre de navigation pour nos nouvelles pages </p>
+        <ol>
+          <li>Dans <code>index.html</code>, ajoutons un peu de HTML:<br>
+          <pre>&lt;!-- Exercise #11 --&gt;
+  &lt;div class='nav mobile-only'&gt;
+    &lt;a href='cats.html'&gt;Categories&lt;/a&gt;
+    &lt;a href='cart.html'&gt;Cart&lt;/a&gt;
+  &lt;/div&gt;</pre>
+          <li>Dans <code>desktop.css</code> nous devons cacher cette nouvelle barre:<br>
+          <pre>/* Exercice #11 */
+.mobile-only {
+  display:none;
+}</pre>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex11-p5-cont'>
+      <header><h1>Styliser la <em>Nav Bar</em></h1></header>
+      <section>
+        <p>Donnons un peu de style à notre barre de navigation dans <code>mobile.css</code></p>
+        <pre style='font-size:20px;'>.nav {
+  background-color:#f095e4; /* un rosé pâle */
+}
+.nav a {
+  display:inline-block;
+  padding:14px;         /* Agrandir la zone tactile! */
+  text-decoration:none; /* Se débarrasser du soulignement */
+  color:#b1009a;
+}
+
+/* home-button (bouton-retour) sur nos pages créées */
+.nav a.home-button {
+  display:block; /* Donner à ce bouton la largeur de l'écran */
+}</pre>
+        <h3 class='ftp' style='line-height:normal'>Téléverser votre travail: index.html, desktop.css, mobile.css et regardez-le sur votre ordi et vos appareils mobiles. Soyez certaines qu'en version <em>desktop</em> la <em>nav bar</em> soit invisible!</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex11-optional'>
+      <header><h1>Ex #11</h1></header>
+      <section>
+        <p>Dissimulons des items de la page d'acceuil</p>
+        <h3>Pour ce faire, nous devons englober (<em>wrap</em>) et dissimuler (<em>hide</em>) plus d'éléments: (index.html)</h3>
+        <pre>&lt;div class='desktop-only'&gt;
+        
+  &lt;h3&gt;Candy&lt;/h3&gt;
+  ...
+  &lt;!-- end candy --&gt;
+  &lt;h3&gt;Apparel&lt;/h3&gt;
+  ...
+  &lt;!-- end apparel --&gt;
+  
+&lt;/div&gt; &lt;!-- end items wrapper --&gt;</pre>
+        <p>Depuis que nous avons appliqué la classe <code>desktop-only</code> à certains éléments, ces derniers disparaîtrons de la version mobile du site. </p>
+        <h3 class='ftp'>Téléversez et voyez ce qui se passe!</h3>
+      </section>
+    </div>
+    
+    <div class='slide' id='mobile-complete'>
+      <header><h1>Magnifique!</h1></header>
+      <section>
+        <br><br>
+        <p style='font-size:34px;'>Excellent travail!<br><br>Maintenant nous avons une version mobile pour la même structure et le même contenu que la version <em>desktop</em>!</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex12-customise'>
+      <header><h1>Personnalisation</h1></header>
+      <section>
+        <p>Nous pouvons modifier/personnaliser notre site davantage</p>
+        <ul>
+          <li>Icône de favoris personnalisée</li>
+          <li>Vidéos</li>
+          <li>Cartes</li>
+        </ul>
+      </section>
+    </div>
+
+    
+   <div class='slide' id='ex12-custom-icon'>
+      <header><h1>Icône personnalisée</h1></header>
+      <section>
+       <p>Permettez-vous de rendre votre site encore plus spécial!</p>
+       <img src='assets/customicon.jpeg' style='height:200px'/>
+        <p>Un bon outil en ligne semblable à Photoshop: <a href='http://pixlr.com/editor'>www.pixlr.com/editor</a></p>
+        <ol>
+          <li>Créer un icône à votre goût! Ou trouvez-en un qui vous plaît sur Internet :)</li>
+          <li>Cette image doit être de <strong>114px by 114px</strong> en tenant compte du <em>retina displau</em> de l'iPhone</li>
+          <li>Sauvegardez cette icône. Eg. custom_icon.png. <strong>Placez-la au même endroit que index.html </strong></li>
+        </ol>
+      </section>
+     </div>
+
+          <div class='slide' id='ex12-custom-icon-blurry'>
+      <header><h1>Votre icône est floue??</h1></header>
+      <section>
+       <p>Chaque appareil <strong>iOS</strong> possède une résolution et des specs de taille d'icônes différent !!!</p>
+       
+        <ul>
+          <li>iPhone / iPod Touch non-retina - pre-iOS7: : <strong>57×57</strong></li>
+          <li>iPhone / iPod Touch retina - pre-iOS7: <strong>114×114</strong></li>
+          <li>iPhone / iPod Touch retina - iOS7: <strong>120×120</strong></li>
+          <li>iPad non-retina (iPad 2 and iPad mini) - pre-iOS7: <strong>72×72</strong></li>
+          <li>iPad non-retina (iPad 2 and iPad mini): <strong>76×76</strong></li>
+          <li>iPad retina - pre-iOS7: <strong>144×144 </strong> </li>
+          <li>iPad retina - iOS7: <strong>152×152 </strong> </li>
+        </ul>
+        <img src='assets/ios7icon.jpg' style='height:400px'/>
+        
+      </section>
+    </div>
+    <div class='slide' id='ex12-custom-icon-blurry2'>
+      <header><h1>Votre icône est floue??</h1></header>
+      <section>
+       <p>Chaque appareil <strong>Android</strong> possède une résolution et des specs de taille d'icônes différent !!!</p>
+       
+        <ul>
+          <li>Densité moyenne (MDPI - 160dpi): <strong>48×48</strong></li>
+          <li>Haute densité (HDPI - 240dpi): <strong>72×72</strong></li>
+          <li>x-haute densité (XHDPI 320dpi): <strong>96x96</strong></li>
+        </ul>
+      </section>
+    </div>
+    <div class='slide' id='ex12-cont-custom-icon'>
+      <header><h1>Exercice #12 - Icone personnalisée</h1></header>
+      <section>
+        <p>Nous devons ajouter une ligne à <code>index.html</code> dans la section des balises <code>&lt;head&gt;</code></p>
+        <pre>&lt;link rel='apple-touch-icon-precomposed' href='LE-NOM-DE-VOTRE-NOUV-ICONE.png' /&gt;</pre>
+        <a href="http://developer.apple.com/library/IOs/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Plus d'info d'Apple</a><br/>
+        <img src='assets/sampleIconCode.png' style='height:200px'/>
+        <h3 class='ftp'>Téléversez votre nouvelle icônne et index.html</h3>
+        <p>Rajoutez votre site sur votre écran d'accueil</p>
+        <p><strong>Pas le temps de créer une icone?</strong> Il y en a une appelée 'llc_homescreen_icon.png' dans votre dossier de départ :)</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='multimedia'>
+      <header><h1>D'autres belles possibilités</h1></header>
+      <section>
+        <p>Dépendamment de la plateforme/appareil que vous utilisez, vous pouvez ajouter des vidéos ou un lien <em>Google Maps</em>  et le téléphone saura ouvrir l'application adéquate.</p>
+        <p>Explorons !</p>
+        <ul>
+          <li>Vidéos Youtube [iPhone, Android]</li>
+          <li>Google Maps [s'ouvre avec l'app. Maps sur Android]</li>
+        </ul>
+        <p>Les appareils Android ont la particularité de vous demander avec quelle app. vous souhaitez l'ouvrir.</p>
+        <p><strong>Ce qui mélange les expériences entre app. natives et site web mobiles</strong>.</p>
+      </section>
+    </div>
+
+    <div class='slide' id='ex12-neat-things'>
+      <header><h1>Exercice #13 - Ajoutez une carte</h1></header>
+      <section style="margin-top:70px">
+        <p>D'abord, nous informerons nos usagers d'où se situe notre boutique fictive, puis nous ajouterons une vidéo de notre choix</p>
+        <ol>
+          <li>Ouvrez <code>index.html</code> et trouvez <code>&lt;-- Exercice #13 --&gt;</code></li>
+          <li>Allez sur maps.google.ca (sur votre ordi) et choisissez un lieu sur la carte - n'importe où!</li>
+          <li>Cliquez sur l'icone de lien (en haut, à gauche)<img src='assets/get_map.png' style='float:right;margin:-10px 0 0 0;'/></li>
+          <li>et copiez le contenu de la première boîte de texte</li>
+          <li>Créez un lien HTML sous le commentaire:</li>
+        </ol>
+        <pre>&lt;-- Exercise #13 --&gt;
+&lt;a href='COPIEZ VOTRE LIEN VERS LA CARTE ICI'&gt;Lieu de notre boutique&lt;/a&gt;</pre>
+        <p>Cliquer sur ceci sur <em>desktop</em> n'est pas très excitant</p>
+        <h3 class='ftp'>Téléversez l'index.html de votre site et essayez-le sur votre mobile :)</h3>
+      </section>
+    </div>
+
+    <div class='slide' id='ex13-cont-video'>
+      <header><h1>Exercice #13 - Ajoutez une vidéo</h1></header>
+      <section>
+        <p>Allons sur Youtube trouver une vidéo amusante à ajouter à notre site !</p>
+        <ol>
+          <li>Allez sur youtube.com et choisissez une vidéo</li>
+          <li>Sous la vidéo, cliquez sur Partager (<em>Share</em>)</li>
+          <li>Cliquez sur sur le bouton <em>'Embed'</em></li>
+          <li>Copiez le <code>&lt;iframe ...</code> </li>
+          <li>Collez-le après le lien de la carte.</li>
+          <li><strong>Changez <code>width="560"</code> pour <code>width="100%"</code> et enlevez <code>height="315"</code> <em>ou définissez une plus petite hauteur.</em></strong></li>
+        </ol>
+      </section>
+    </div>
+    
+    <div class='slide' id='ex13-cont-in-app'>
+      <header><h1>Jouez une vidéo avec une App...</h1></header>
+      <section>
+        <p>Mais elle joue dans le navigateur (ce qui est génial!). Je croyais que vous aviez dit que ca ouvrirait une app ?</p>
+        <pre>&lt;a href='COPIEZ LE LIEN DU NAVIGATEUR ICI'&gt;Video link&lt;/a&gt;</pre>
+        <p>Là ca va l'faire ! :) C'est une bonne option si votre vidéo n'a pas de <em>HTML5 support</em></p>
+      </section>
+    </div>
+
+    <div class='slide'>
+      <header><h1>Testez et déboguer</h1></header>
+      <section>
+        <p>Comment des développeurs pour mobile débogent leur sites?</p>
+        <p>Les navigateurs modernes ont un puissant outils : L'INSPECTEUR !</p>
+        <p><strong>Chrome:</strong> Clique droit n'importe où et sélectionnez: 'Inspecter l'élément'</p>
+        <p><strong>Firefox:</strong> Clique droit n'importe où et sélectionnez: 'Inspecter l'élément'</p>
+        <p>Essayons-le</p>
+        <ul>
+          <li>Supprimez du HTML et du CSS</li>
+          <li>Ajoutez du HTML et du CSS</li>
+          <li>Changez des couleurs, des tailles rapidement sans avoir à rafraîchir la page</li>
+        </ul>
+      </section>
+    </div>
+    
+    <div class='slide' id='keep-going'>
+      <header><h1>On lâche pas!</h1></header>
+      <section>
+        <p>Continez d'expérimenter avec le CSS et voyez tout ce que vous pouvez faire</p>
+        <p>Ces liens de vidéo/cartes sont bien petits...grossissons-les?</p>
+        <p>Enjolivez-les :)</p>
+        <p>Essayez d'ajouter une page à votre sujet :)</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='other-cool-features'>
+      <header><h1>D'autres options utiles</h1></header>
+      <section>
+        <p>L'HTML5 amène d'autres possibilités que vous connaissez peut-être</p>
+        <ul>
+          <li>Géolocalisation</li>
+          <li>Stockage de donnée en local</li>
+          <li><em>Canvas Drawing</em> - une alternative au flash</li>
+          <li>Contenu éditable</li>
+          <li>Formulaire avec accès direct au clavier tactile</li>
+          <li>... Et la liste est longue. Jetez-y un oeil <a href='http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/'>ici</a></li>
+        </ul>
+        <p>Divers supports pour les navigateurs populaires: Chrome, Safari, Opera, Firefox, Internet Explorer.</p>
+        <p>Note: une version de Safari roule sur les appareils iOS. Tout comme une version de Chrome roule sur les appareils Android. BB7+ roule une version de Chrome/Safari également.</p>
+      </section>
+    </div>
+
+    <div class='slide' id='one-more-thing'>
+      <header><h1>Une dernière chose</h1></header>
+      <section>
+        <p>Nous avons conçu notre site en version <em>desktop</em> d'abord, puis nous avons fait la version mobile.</p>
+        <p>Comme beaucoup plus de gens consulterons votre site sur leur mobile, pensez-y dès le départ</p>
+        <p><em>"Mobile First"</em> - Plusieurs compagnies n'ont plus de site <em>desktop</em>. Ex: Path, Couple, BBM, et d'autres.</p>
+        <p>Voici un bon tutoriel semblable à cet atelier sur la conception du site mobile en premier: <a href="http://www.html5rocks.com/en/mobile/responsivedesign/">ici</a> ou
+
+      <a href="http://www.grafikart.fr/tutoriels/html-css/media-queries-responsive-178">ici</a> pour un tutoriel en français</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='conclusions'>
+      <header><h1>Conclusion</h1></header>
+      <section>
+        <p>Nous avons créé un site mobile depuis une version <em>desktop</em>(mais il est recommandé de débuter avec le mobile)</p>
+        <p>Mettre en valeur le contenu <strong>nécessaire</strong> (lequel et comment)</p>
+        <p>Penser aussi aux tailles, espaces de navigation et zones tactiles</p>
+        <p>Multimédias</p>
+        <p>Plusieurs façons d'adapter</p>
+        <p>Les appareils iPhone/iPod et Android sont de + en + performants</p>
+        <p>HTML5/CSS pour construire le web mobile</p>
+      </section>
+    </div>
+    
+    <div class='slide' id='further-reading'>
+      <header><h1>Suggestions de lecture</h1></header>
+      <section>
+        <p>Voici une mine d'information sur ces sujets, disponible sur Internet.</p>
+        <ul>
+          <li><a href='http://www.w3.org/TR/css3-box/'>Plus sur <em>the box model</em></a></li>
+          <li><a href='http://www.quirksmode.org/mobile/viewports2.html'>En apprendre plus sur les <em>viewports</em></a></li>
+          <li><a href='http://www.alistapart.com/articles/responsive-web-design/'>Plus sur le design pour les appareils mobile (Responsive design)</a></li>
+          <li><a href='https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference'>Délicieuse référence en CSS</a></li>
+          <li><a href='http://net.tutsplus.com/category/tutorials/html-css-techniques/'>Des tuto HTML/CSS </a></li>
+          <li><a href='http://screensiz.es'>Les tailles d'écrans</a></li>
+        </ul>
+      </section>
+    </div>
+  
+    <div class='slide' id='fini'>
+      <header><h1>Merci beaucoup !</h1></header>
+      <section>
+        <br>
+        <p style='text-align:center;font-size:30px;'>Merci de votre présence aujourd'hui !</p><br>
+        <p style='text-align:center;font-size:40px;'>Continuez votre excellent travail !</p><br>
+      </section>
+    </div>
+
+      </div> <!-- slides --> 
+      
+      <script type="text/javascript">
+		function showHint(slide) {
+			var preTags = document.getElementById(slide).getElementsByTagName("pre");
+			for ( var i=0; i<preTags.length; i++ ) {
+				var preTag = preTags[i];
+				if ( preTag.getAttribute( "id" ) == "hint" ) {
+					preTag.style.display = "block";
+					break;
+				}
+			}
+		}
+	  </script>
+      <style>
+	  	p.showHint { cursor: pointer; font-size: 14px; color: #C6F; display: inline; }
+	  </style>
+      
+      <div id="speaker-note" class="invisible" style="display: none;"> 
+      </div> <!-- speaker note --> 
+      <aside id="help" class="sidebar invisible" style="display: hidden;"> 
+        <table> 
+          <caption>Help</caption> 
+          <tbody> 
+            <tr> 
+              <th>Move Around</th> 
+              <td>&larr;&nbsp;&rarr;</td> 
+            </tr> 
+            <tr> 
+              <th>Source File</th> 
+              <td>s</td> 
+            </tr> 
+            <tr> 
+              <th>Change Theme</th> 
+              <td>t</td> 
+            </tr> 
+            <tr> 
+              <th>Speaker Notes</th> 
+              <td>n</td> 
+            </tr> 
+            <tr> 
+              <th>Toggle Code Highlighting</th> 
+              <td>c</td> 
+            </tr> 
+            <tr> 
+              <th>Help</th>
+              <td>h</td> 
+            </tr> 
+          </tbody> 
+        </table> 
+      </aside> 
+    
+    </div> <!-- presentation --> 
+ 
+    <!--[if lt IE 9]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+    </script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+    <![endif]--> 
+ 
+    <script src="src/prettify/prettify.js" onload="prettyPrint();" defer></script> 
+    <script src="js/utils.js"></script>
+  </body> 
+</html>
