@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="framework/css/slideshow.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/a11y/plugin.css">
   <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
   <link rel="shortcut icon" href="framework/img/favicon.ico">
 
@@ -131,6 +132,7 @@
       ## Truc de pro!
 
       Les mises à jours sont fréquentes. Soyez certaine que vous avez la plus récente version en copiant `chrome://chrome/` dans la barre d'adresse de Chrome.
+
       </script>
     </section>
 
@@ -197,7 +199,6 @@
       *   Le contenu change également.
       *   Voyez-le comme un ensemble de structures à tailles fixes appelées en réponse à des tailles d'écrans.
 
-
       > [Passons en revue un exemple](http://www.screamingfrog.co.uk/). Essayez de redimensionner votre fenêtre de navigateur. Voyez-vous la différence avec la structure dite fluide?
       </script>
     </section>
@@ -248,7 +249,7 @@
         * Il est utilisé pour contenir et assigner du sens à un document web
         * Il utilise des *balises* pour créer des *éléments* HTML
 
-        ```xml
+        ```html
         <p>Ceci est un paragraphe.</p>
         ```
 
@@ -256,7 +257,7 @@
 
         Exemple:
 
-        ```xml
+        ```html
         <p>Paragraphe avec un <a href="#">lien</a>.</p>
         ```
       </script>
@@ -424,7 +425,7 @@
 
         Utiliser l'espacement aide à illustrer quel élément est l'enfant, le parent ou le frère (*sibling*) dans un environnement donné.
 
-        ```xml
+        ```html
         <body> <!-- Ici, l'élément Body est l'élément parent de la div -->
           <div> <!-- Cette div est un élément enfant de Body et un parent des P -->
             <p>I am a sibling of the p below me! I am also a child of the div.</p>
@@ -486,6 +487,7 @@
       4. Le dossier et son contenu devrait s'afficher dans la barre latérale de votre éditeur de code. Double cliquez sur `index.html` pour l'ouvrir.
 
         ![](framework/img/workshop/editor-add-project-3.jpg)
+        
       </script>
     </section>
 
@@ -494,7 +496,6 @@
         #Se familiariser avec Atom
 
         Posséder un bon éditeur de texte et apprendre comment l'utiliser à son plein potentiel vous aidera beaucoup dans votre travail. Aujourd'hui, ajustons l'option de *text wrapping* pour faciliter la lecture de longs blocs de code et de texte.
-
 
         1. Allez dans **Preferences** pour ouvrir les option de personnalisation.
 
@@ -566,7 +567,7 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #La syntaxe du CSS
-
+        
         ```
         /* This is a CSS comment by the way */
         div {
@@ -664,7 +665,7 @@ selector { /* sélectionnez le lien */
 
       Pour les utiliser, ajoutez-les dans la balise HTML *ouvrante*. Vous pouvez les utiliser plus qu'une fois pour le même type d'élément.
 
-      ```xml
+      ```html
       <div class="wrapper">
         contenu ici
       </div>
@@ -673,7 +674,7 @@ selector { /* sélectionnez le lien */
       Dans le CSS, un sélecteur de classe commence par un point.
 
 
-      ```
+      ```css
       .wrapper {
         width: 1000px;
       }
@@ -736,7 +737,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
         Utilisez la balise `<link>` pour référencer le fichier.
         <br><span class="note">**Conseil de pro!** Pour un raccourci clavier, tapez "link" + la touche <kbd>Tab</kbd>. Et voilà!</span>
 
-        ```
+        ```html
         <link rel="stylesheet" href="css/styles.css">
         ```
 
@@ -753,7 +754,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Cherchez le sélecteur `body, vers le haut du fichier `styles.css` et changez le nom du fichier de l'image.
 
-        ```
+        ```css
         body {
           ...
           background: url(../images/background-4.jpg) no-repeat fixed;
@@ -1130,7 +1131,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         La balise `<meta>` viewport **doit** être incluse dans le `<head>` de votre document HTML pour s'assurer que la page réagit sur les appareils mobiles.
 
-        ```xml
+        ```html
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ```
 
@@ -1184,7 +1185,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         1. Ajoutez un media query avec un breakpoint d'environ `768px` - `900px`
         1. Pour `.profile-image`, voici les valeurs qui doivent changer:
-        ```
+        ```css
         float: left;
         width: 27%;
         margin-right: 3%;
@@ -1192,7 +1193,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
           * ajustez ces valeurs pour le faire flotter à droite
           * augmentez la largeur de `.profile-image`
         1. Pour `.profile .summary`, voici les valeurs qui doivent changer:
-        ```
+        ```css
         float: left;
         width: 70%;
         ```
@@ -1212,7 +1213,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Vos valeurs de largeur peuvent varier dépendant de vos préférences de design.
 
-        ```
+        ```css
         @media (max-width: 800px) {
           /* ceci est ici seulement pour faire du testing */
           body {
@@ -1396,7 +1397,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Une autre technique serait d'utiliser min-width et max-width pour spécifier des styles pour des écrans différents.
 
-        ```
+        ```css
         @media (min-width: 601px) {
           header h1 {
             font-size: 60px;
@@ -1500,6 +1501,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
   <script src="framework/scripts/plugins/markdown/marked.js"></script>
   <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/a11y/plugin.js"></script>
   <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script src="framework/scripts/llc.js"></script>
