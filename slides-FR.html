@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="framework/css/slideshow.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
   <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/a11y/plugin.css">
   <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
   <link rel="shortcut icon" href="framework/img/favicon.ico">
 
   <!-- Takes care of CSS3 prefixes -->
   <script src="framework/scripts/prefixfree.min.js"></script>
-  
+
   <!-- opens all links in a new window -->
   <base target="_blank">
 </head>
@@ -22,14 +23,14 @@
   <main>
     <section class="slide welcome highlight">
       <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
-      
+
       <div class="instructions">
         <!-- ADD WIFI INFO HERE -->
         <!-- <h2>Get <br>Connected</h2>
         <p><strong>Wifi:</strong> wifi network</p>
         <p><strong>Password:</strong> wifi password</p>
         <hr> -->
-        
+
         <h2><br>Télécharger & Installer</h2>
         <ol class="downloads">
           <li>Fichiers des apprenantes (zip): <a href="https://github.com/ladieslearningcode/llc-responsive-design-FR/archive/master.zip">bit.ly/llc-responsive-fr</a>
@@ -48,23 +49,23 @@
         <p class="left">Contenu créé par <a href="https://twitter.com/agentemily">Emily Porta</a> et <a href="http://christinatruong.com">Christina Truong</a> & traduits par <a href="https://twitter.com/cassierheaume">Cassie L. Rhéaume</a>  pour <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
         <p class="right">Utilisez les flèches de gauche <span class="arrow">&#8592;</span> et de droite <span class="arrow">&#8594;</span> pour naviguer entre les diapos</p>
       </footer>
-    </section> 
-    
+    </section>
+
     <section class="slide intro">
       <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
       <h1 class="heading-bg">
         <span>Intro au Web Design <br>Responsive</span>
       </h1>
-      
+
       <!--
       <img class="instructor" src="./slides/manon.jpg" alt="Manon Mialet">
-      <h2><span class="cursive">with</span> Manon Mialet</h2>  
+      <h2><span class="cursive">with</span> Manon Mialet</h2>
       <ul>
         <li><a href="mailto:bonjour@manonmialet.com">bonjour@manonmialet.com</a></li>
         <li><a href="http://www.manonmialet.com/">www.manonmialet.com</a></li>
         <li><a href="https://twitter.com/MMialet">@MMialet</a></li>
-      </ul> 
-      
+      </ul>
+
       <div class="sponsor">
         <p>En partenariat avec<br> <img src="framework/img/telus-logo-white.svg" alt="Telus"></p>
       </div>-->
@@ -78,7 +79,7 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #Le projet d'aujourd'hui
-        
+
         Pour le projet d'aujourd'hui, nous allons démarrer à partir d'une page web existante et nous l'optimiserons pour qu'elle s'adapte à des écrans de différentes tailles. Suivez [ce lien](project/final.html) pour le voir!
 
         ![final project](framework/img/workshop/final-project.jpg)
@@ -88,26 +89,26 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #Plan de l'atelier
-        
-        <div class="table-of-contents"></div> 
+
+        <div class="table-of-contents"></div>
       </script>
     </section>
 
     <section class="slide" data-markdown data-toc>
       <script type="text/template">
-      #Préparer son environnement 
+      #Préparer son environnement
 
-      **[Atom](https://atom.io/)** - Un éditeur de texte avec surlignage de couleur et d'autres outils bien utiles. 
-      
+      **[Atom](https://atom.io/)** - Un éditeur de texte avec surlignage de couleur et d'autres outils bien utiles.
+
       Si vous avez du mal à installer Atom, essayez: <!-- .element: class="note" -->[Notepad++](http://notepad-plus-plus.org/) (Windows), [Sublime Text](http://www.sublimetext.com) (Mac ou Windows) ou [Text Wrangler](http://www.barebones.com/products/textwrangler/download.html) (Macs âgés).
 
-      **[Google Chrome](https://www.google.com/intl/en-CA/chrome/browser/)** - Choisissez un navigateur moderne qui supporte les plus récent standards du web et qui possède un bon outil de développement. 
+      **[Google Chrome](https://www.google.com/intl/en-CA/chrome/browser/)** - Choisissez un navigateur moderne qui supporte les plus récent standards du web et qui possède un bon outil de développement.
 
-      Pour dééfinir Chrome comme navigateur par défaut, suivez<!-- .element: class="note" --> [ces instructions](https://support.google.com/chrome/answer/95417?hl=en). 
+      Pour dééfinir Chrome comme navigateur par défaut, suivez<!-- .element: class="note" --> [ces instructions](https://support.google.com/chrome/answer/95417?hl=en).
 
-      Firefox, Safari et IE 10+ sont très bien, mais leurs outils de développementsont un peu différents. Demeurez avec Chrome pour cet atelier, svp! 
-      
-      Visitez <!-- .element: class="note" -->[browsehappy.com](http://browsehappy.com) pour plus d'information sur les navigateurs. 
+      Firefox, Safari et IE 10+ sont très bien, mais leurs outils de développementsont un peu différents. Demeurez avec Chrome pour cet atelier, svp!
+
+      Visitez <!-- .element: class="note" -->[browsehappy.com](http://browsehappy.com) pour plus d'information sur les navigateurs.
       </script>
     </section>
 
@@ -119,10 +120,10 @@
 
       * Clique-droit / tape à 2 goits sur n'importe qu'elle page web. Selectionnez **Inspecter**.
       * Raccourci clavier: **Ctrl + Shift + I** (PC) / **Cmnd + Option + I** (Mac)
-      
+
       ![](framework/img/workshop/dev-tools-emulator.jpg)
       Une fois ouvert, cliquez sur l'icone d'appareil mobile pour démarrer le simulateur. l'icone deviendra bleue. Cliquez à nouveau pour le fermer.
-      
+
       <!-- .element: class="note" --> **Truc de pro!** Les mises à jours sont fréquentes. Soyez certaine que vous avez la plus récente version en copiant`chrome://chrome/` dans la barre d'adresse de Chrome.
       </script>
     </section>
@@ -138,13 +139,13 @@
         #Differents types de design web
 
         Pour mieux comprendre le *responsive web design* et le développement web nous devons comprendre quelles sont les options:
-        
+
         Fixe/Statique, Fluide, Adaptive, Responsive
-        
+
         > Jetons un oeil et discutons autour de quelques exemples: http://www.liquidapsive.com/
         >
         > Jouez avec la taille de votre navigateur. Comment le design change-t-il?
-        
+
         ---
         ###Resources
         * lisez l'[article](http://alistapart.com/article/responsive-web-design) qui est à l'origine du mouvement *web responsive*.
@@ -157,7 +158,7 @@
       <script type="text/template">
       #Web design fixe
 
-      *   Tout a une largeur fixe (ex. 960px). 
+      *   Tout a une largeur fixe (ex. 960px).
       *   Méthode populaire avant que la navigation sur appareil mobile soit commune.
       *   Sur un écran de mobile, le site est en *zoom out* pour s'ajuster et les contenus deviennent minuscules.
       *   Besoin de séparer le site, souvent un "m point", pour accéder à une version *mobile friendly* du site.
@@ -171,13 +172,13 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #Web design fluide
-        
+
         *   Basé sur des largeurs en pourcentage, chaque bloc de contenu prend un pourcentage de la page (ex: un menu de côté prendra une largeur de 30%, la section principale ~70% )
         *   Quand vous redimensionnez votre fenêtre de navigateur, les blocs vont se redimensionner relativement à la taille de la page (aka le "viewport").
         *   Pas optimisé pour les plus petits écrans ni les appareils mobiles.
 
         >Jetons un oeil à un [exemple](http://alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html). Essayez de redimensionner votre fenêtre de navigateur.  Voyez-vous ce qui arrive à la structure de la page?
-        
+
       </script>
     </section>
 
@@ -190,7 +191,7 @@
       *   Le contenu change également.
       *   Voyez-le comme un ensemble de structures à tailles fixes appelées en réponse à des tailles d'écrans.
 
-      
+
       >Jetons un oeil à un [exemple](http://www.screamingfrog.co.uk/). Essayez de redimensionner votre fenêtre de navigateur. Voyez-vous la différence avec la structure dite fluide?
       </script>
     </section>
@@ -203,16 +204,16 @@
         *   Les composantes de la page sont **flexibles** entre les tailles d'écrans les plus communes.
         *   Utilise _aussi_ des *media queries* pour modifier la structure entre les tailles d'appareils.
         *   Conçu avec des **breakpoints** pour présenter les contenus le plus fidèlement, de la façon la plus convenable.
-        
+
         > Voyez-vous la différence entre une [structure fluide](http://alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html) vs [fluide et responsive](http://alistapart.com/d/responsive-web-design/ex/ex-site-FINAL.html)?
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-      #Le design *mobile-first* 
+      #Le design *mobile-first*
 
-      Lorsque nous avons commencé à entendre parler de *web responsive*, il était commun de débuter avec une maquette de taille *desktop*. Ensuite, 
+      Lorsque nous avons commencé à entendre parler de *web responsive*, il était commun de débuter avec une maquette de taille *desktop*. Ensuite,
       elle était adaptée aux plus petits écrans.
 
       La réalité a changé avec les téléphones intelligents et les tablettes. C'était le temps pour une nouvelle approche: Le *mobile first design*!
@@ -236,7 +237,7 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #HTML (HyperText Markup Language)
-        
+
         * HTML est le language compris par les navigateurs. HTML5 est la plus récente version
         * Il est utilisé pour contenir et assigner du sens à un document web
         * Il utilise des *balises* pour créer des *éléments* HTML
@@ -259,7 +260,7 @@
       <script type="text/template">
         # HTML Elements
 
-        Nous en aurions pour la journée si nous devions revoir tous les éléments HTML & HTML5 - il y en a tellement! 
+        Nous en aurions pour la journée si nous devions revoir tous les éléments HTML & HTML5 - il y en a tellement!
 
         Voici une [liste pratique](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list) à titre de référence.
 
@@ -267,46 +268,46 @@
 
         * [http://www.sitepoint.com/web-foundations/elements/](http://www.sitepoint.com/web-foundations/elements/)
         * [http://websitesetup.org/html5-cheat-sheet/](http://websitesetup.org/html5-cheat-sheet/)
-        * [html-elements.txt](project/html-elements.txt), placée dans votre dossier **project** 
+        * [html-elements.txt](project/html-elements.txt), placée dans votre dossier **project**
 
         Révisons quelques balises couramment utilisées
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Éléments HTML populaires: les titres
-        
+
         * Trouvé dans la section `<head>` de votre decument HTML
         * Définit le titre de la page
         * S'affiche dans l'onglet du navigateur, les résultats d'engins de recherche et les favoris
-        
+
         ```xml
         <head>
           <title>Titre de page</title>
         </head>
         ```
-        
+
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Éléments HTML populaires: les listes
-        
-        Il existe 2 types de listes: 
-        
+
+        Il existe 2 types de listes:
+
         * ordonnées (`ol`) pour une liste chiffrée
         * non-ordonnées (`ul`) pour les listes qui ne requièrent pas d'ordre spécifique
-        
+
         Le contenu des items listés doivent être entre balise (`li`).
-        
+
         ```xml
         <ul>
           <li>Item de liste non-ordonnée</li>
           <li>Item de liste non-ordonnée</li>
         </ul>
-        
+
         <ol>
           <li>Item de liste ordonnée</li>
           <li>Item de liste ordonnée</li>
@@ -314,50 +315,50 @@
         ```
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Éléments HTML populaires: entêtes et paragraphes
-        
+
         ##Entêtes (*Headings*)
         Il y a 6 types d'entêtes (`<h1>,<h2>,...,<h6>`) qui suivent un ordre hiérarchique.
-        
+
         ```xml
         <h1>Entête la plus importante</h1>
         <h2>Deuxième plus importate entête</h2>
         ```
-        
-        Il est important de choisir la bonne balise d'entête pour décrire votre contenu. Ne les utilisez pas pour leur style par défaut. 
+
+        Il est important de choisir la bonne balise d'entête pour décrire votre contenu. Ne les utilisez pas pour leur style par défaut.
         C'est à ca que sert le CSS!
 
-        
+
         ##Paragraphes
-        
-        Créés à l'aide des balises `<p></p>`. 
+
+        Créés à l'aide des balises `<p></p>`.
         ```xml
         <p>Je suis un paragraphe.</p>
         ```
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #HTML et les attributs
-        
+
         Il existe plusieurs éléments HTML qui requièrent l'ajout d'*attributs*. Ces derniers servent à donner plus d'infonformation.
-        
-        Les **Liens** nécessitent une balise `<a>` et un *attribut* `href` pour spécifier où mène le lien. L'attribut `title` devrait être ajouté par soucis d'accessibilité. 
+
+        Les **Liens** nécessitent une balise `<a>` et un *attribut* `href` pour spécifier où mène le lien. L'attribut `title` devrait être ajouté par soucis d'accessibilité.
         ```
         <a href="http://website.com" title="Titre du lien">lien</a>
         ```
-        Les **Images** utilisent une balise `<img>` où l'attribut `src` est un lien vers l'image. L'attribut `alt` devrait être ajouté par soucis d'accessibilité. 
+        Les **Images** utilisent une balise `<img>` où l'attribut `src` est un lien vers l'image. L'attribut `alt` devrait être ajouté par soucis d'accessibilité.
         ```
         <img src="path/to/image.jpg" alt="Texte alternatif à l'image">
         ```
         Notez que la balise image est auto-fermante!
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Encore plus d'attributs!
@@ -365,34 +366,34 @@
         Voici 2 autres attributs principalement utilisés lors de la rédaction du CSS.
 
         **class** - peuvent être utilisés plusieurs fois par page.
-        
+
         ```xml
         <div class="column">Exemple de classe</div>
         ```
-        
+
         **id** - peuvent être utilisés pour la sélection en CSS(mais pas recommandé), Un seul id par page.
-        
+
         ```xml
         <div id="about">Section 'About'</div>
         ```
-        
+
         ---
         ###Ressource
         [Référence sur les attributs HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Les balises imbriquées
 
         Quand les balises HTML sont imbriquées (l'une à l'intérieur de l'autre), les espaces sont utilisés pour une meilleur lisibilité du code.
-        
+
         Ajoutez un *Tab* pour indiquer le niveau d'imbriquement.
-        
+
         ```xml
-        <body> 
-          <div> 
+        <body>
+          <div>
             <p>Paragraphe 1.</p>
             <p>Paragraphe 2.</p>
           </div>
@@ -400,7 +401,7 @@
         ```
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
       #Les relations HTML
@@ -410,7 +411,7 @@
       ![](framework/img/workshop/dom-tree.png)
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Parent, enfants, soeurs (siblings) & indentation
@@ -427,12 +428,12 @@
         ```
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Commentaire HTML
-        
-        Les commentaires HTML sont utiles pour laisser des notes à votre attention (ou à d'autres) sans qu'elles n'apparaissent dans le navigateur. 
+
+        Les commentaires HTML sont utiles pour laisser des notes à votre attention (ou à d'autres) sans qu'elles n'apparaissent dans le navigateur.
 
         On utilise les commentaires pour:
 
@@ -441,20 +442,20 @@
         * organiser son document
 
         La syntaxe débute comme ceci `<!--` et se termine comme cela `-->`.
-        
+
         ```
         <!-- Les commentaires devraient toujours êtres inclus entre tirets -->
         ```
       </script>
     </section>
-    
-  
+
+
     <section class="slide title" data-markdown>
       <script type="text/template">
         #Assez jasé! Let's code!
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
       #Ouvrez le dossier de projet
@@ -469,26 +470,26 @@
       ```
 
       Allez dans **File** > ** Add Project Folder**. Un popup devrait apparaître!
-      
+
       ![](framework/img/workshop/editor-add-project-1.jpg)
-      
+
       Puis, naviguez jusqu'au dossier **llc-responsive-design-master**, sélectionnez le **project** et cliquez **Open**.
-      
+
       ![](framework/img/workshop/editor-add-project-2.jpg)
 
       Le dossier et son contenu devrait s'afficher dans la barre latérale de votre éditeur de code. Double cliquez sur **index.html** pour l'ouvrir.
-      
+
       ![](framework/img/workshop/editor-add-project-3.jpg)
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #Se familiariser avec Atom
-        
+
         Posséder un bon éditeur de texte et apprendre comment l'utiliser à son plein potentiel vous aidera beaucoup dans votre travail. Aujourd'hui, ajustons l'option de *text wrapping* pour faciliter la lecture de longs blocs de code et de texte.
 
-        
+
         Allez dans **Preferences** pour ouvrir les option de personnalisation.
 
         ![](framework/img/workshop/atom-preferences.jpg)<!-- .element: width="70%" -->
@@ -496,14 +497,14 @@
         L'onglet **Settings** apparaitra par défaut. sélectionnez l'option **Soft Wrap**.
 
         ![](framework/img/workshop/atom-settings.jpg)<!-- .element: width="70%" -->
-          
+
         Soyez certaine que l'option **Soft Wrap** soit cochée.
-        
+
         ![](framework/img/workshop/atom-soft-wrap.jpg)<!-- .element: width="70%" -->
-        
+
         ---
         ###Ressources
-        
+
         *   [Atom documentation](https://atom.io/docs)
         *   [Atom Shortcuts cheat sheet](https://bugsnag.com/blog/atom-editor-cheat-sheet)
         *   [Personnaliser Atom](https://atom.io/docs/v0.61.0/customizing-atom)
@@ -511,7 +512,7 @@
         *   [Snippets](https://github.com/atom/snippets) - Créez vos propres raccourcis pour vos *snippets*
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
       # Exercice: Ajuster le contenu (~15mins)
@@ -525,7 +526,7 @@
       **Important!** Évitez de modifier les balises HTML puisqu'elles ont déjà du CSS qui leur sont associés. Soyez à l'aise d'ajouter et suprimer des éléments non-structuraux comme des paragraphes, des liens, ou des images. N'hésitez pas à demander l'aide aux mentors!
       </script>
     </section>
-    
+
     <section class="slide title" data-markdown>
       <script type="text/template">
         <h1>Bonjour CSS!</h1>
@@ -550,16 +551,16 @@
 
       ```css
       h1 {
-        color: red; 
+        color: red;
       }
-      ``` 
+      ```
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #La syntaxe du CSS 
-        
+        #La syntaxe du CSS
+
         ```
         /* This is a CSS comment by the way */
         div {
@@ -582,10 +583,10 @@
     <section class="slide" data-markdown>
       <script type="text/template">
         #Practiquons-nous à écrire du CSS
-        
+
         Essayez de changer les valeurs des couleurs ci-dessous et d'accroître/décroître les valeurs des *paddings* pour observer les changements!
-        
-        <textarea class="snippet" data-subject="#css-practice">color: slateblue; 
+
+        <textarea class="snippet" data-subject="#css-practice">color: slateblue;
         padding: 10px 15px 80px 60px;</textarea>
 
         <div id="css-practice" class="example">
@@ -593,10 +594,10 @@
         </div>
       </script>
     </section>
-    
+
     <section class="slide title" data-markdown>
       <script type="text/template">
-        #Sélecteurs CSS 
+        #Sélecteurs CSS
         ##Appliquer du style au éléments HTML
       </script>
     </section>
@@ -612,7 +613,7 @@
           /* styles pour tous les paragraphes de la page*/
         }
         a {
-          /* styles pour tous les liens de la page*/  
+          /* styles pour tous les liens de la page*/
         }
         ```
 
@@ -620,7 +621,7 @@
 
         ```css
         section p {
-          /* Styles qui s'appliqueront à tous les paragraphes qui sont dans la section */ 
+          /* Styles qui s'appliqueront à tous les paragraphes qui sont dans la section */
 
         ul li a {
           /* Styles qui s'appliqueront à tous les liens qui sont à l'intérieur des éléments d'une liste non-ordonnée  */
@@ -628,7 +629,7 @@
         ```
       </script>
     </section>
-    
+
     <section class="slide">
       <!-- <script type="text/template"> -->
         <h1>Pratiquons-nous à électionner un élément grace à un sélecteur de type</h1>
@@ -648,7 +649,7 @@ selector { /* sélectionnez le lien */
         </div>
       <!-- </script> -->
     </section>
-  
+
     <section class="slide" data-markdown>
       <script type="text/template">
       #Classe, attributs et sélecteurs
@@ -673,12 +674,12 @@ selector { /* sélectionnez le lien */
       ```
       </script>
     </section>
-    
+
     <section class="slide">
       <!-- <script type="text/template"> -->
         <h1>Plus de pratique avec les sélecteurs</h1>
         <p>Utilisez le bout de HTML ci-dessous et tentez d'ajuster les sélecteurs CSS en conséquence.</p>
-        
+
 <pre><code>&lt;section class=&quot;about&quot;&gt;
   &lt;a href=&quot;#&quot;&gt;This is a link&lt;/a&gt;
   &lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;
@@ -690,7 +691,7 @@ selector { /* sélectionnez le lien */
     <p>Ceci est un paragraphe.</p>
   </section>
 </div>
-        
+
 <textarea class="snippet" data-subject="#css-classes">selector { /* Sélectionnez la classe 'about' */
   padding: 20px;
 }
@@ -718,7 +719,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
         }
         ```
       </script>
-    </section>    
+    </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
@@ -1492,6 +1493,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
   <script src="framework/scripts/plugins/markdown/marked.js"></script>
   <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/a11y/plugin.js"></script>
   <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <script src="framework/scripts/llc.js"></script>
