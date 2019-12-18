@@ -242,7 +242,7 @@
         * Il est utilisé pour contenir et assigner du sens à un document web
         * Il utilise des *balises* pour créer des *éléments* HTML
 
-        ```xml
+        ```html
         <p>Ceci est un paragraphe.</p>
         ```
 
@@ -250,7 +250,7 @@
 
         Exemple:
 
-        ```xml
+        ```html
         <p>Paragraphe avec un <a href="#">lien</a>.</p>
         ```
       </script>
@@ -282,7 +282,7 @@
         * Définit le titre de la page
         * S'affiche dans l'onglet du navigateur, les résultats d'engins de recherche et les favoris
 
-        ```xml
+        ```html
         <head>
           <title>Titre de page</title>
         </head>
@@ -302,7 +302,7 @@
 
         Le contenu des items listés doivent être entre balise (`li`).
 
-        ```xml
+        ```html
         <ul>
           <li>Item de liste non-ordonnée</li>
           <li>Item de liste non-ordonnée</li>
@@ -323,7 +323,7 @@
         ##Entêtes (*Headings*)
         Il y a 6 types d'entêtes (`<h1>,<h2>,...,<h6>`) qui suivent un ordre hiérarchique.
 
-        ```xml
+        ```html
         <h1>Entête la plus importante</h1>
         <h2>Deuxième plus importate entête</h2>
         ```
@@ -335,7 +335,7 @@
         ##Paragraphes
 
         Créés à l'aide des balises `<p></p>`.
-        ```xml
+        ```html
         <p>Je suis un paragraphe.</p>
         ```
       </script>
@@ -348,11 +348,11 @@
         Il existe plusieurs éléments HTML qui requièrent l'ajout d'*attributs*. Ces derniers servent à donner plus d'infonformation.
 
         Les **Liens** nécessitent une balise `<a>` et un *attribut* `href` pour spécifier où mène le lien. L'attribut `title` devrait être ajouté par soucis d'accessibilité.
-        ```
+        ```html
         <a href="http://website.com" title="Titre du lien">lien</a>
         ```
         Les **Images** utilisent une balise `<img>` où l'attribut `src` est un lien vers l'image. L'attribut `alt` devrait être ajouté par soucis d'accessibilité.
-        ```
+        ```html
         <img src="path/to/image.jpg" alt="Texte alternatif à l'image">
         ```
         Notez que la balise image est auto-fermante!
@@ -367,13 +367,13 @@
 
         **class** - peuvent être utilisés plusieurs fois par page.
 
-        ```xml
+        ```html
         <div class="column">Exemple de classe</div>
         ```
 
         **id** - peuvent être utilisés pour la sélection en CSS(mais pas recommandé), Un seul id par page.
 
-        ```xml
+        ```html
         <div id="about">Section 'About'</div>
         ```
 
@@ -391,7 +391,7 @@
 
         Ajoutez un *Tab* pour indiquer le niveau d'imbriquement.
 
-        ```xml
+        ```html
         <body>
           <div>
             <p>Paragraphe 1.</p>
@@ -418,7 +418,7 @@
 
         Utiliser l'espacement aide à illustrer quel élément est l'enfant, le parent ou le frère (*sibling*) dans un environnement donné.
 
-        ```xml
+        ```html
         <body> <!-- Ici, l'élément Body est l'élément parent de la div -->
           <div> <!-- Cette div est un élément enfant de Body et un parent des P -->
             <p>I am a sibling of the p below me! I am also a child of the div.</p>
@@ -443,7 +443,7 @@
 
         La syntaxe débute comme ceci `<!--` et se termine comme cela `-->`.
 
-        ```
+        ```html
         <!-- Les commentaires devraient toujours êtres inclus entre tirets -->
         ```
       </script>
@@ -462,7 +462,7 @@
 
       À l'intérieur du dossier que vous avez téléchargé aujourd'hui, ouvrez le dossier **project** dans éditeur.
 
-      ```
+      ```xml
       llc-responsive-design-master
         |-- framework // Contient les fichiers nécessaire aux diapos de cette présentation. NE PAS MODIFIER!
         |-- project // Contient les fichiers d'exercices nécessaire à cet atelier. (fichiers d'images, de CSS & de HTML)
@@ -561,7 +561,7 @@
       <script type="text/template">
         #La syntaxe du CSS
 
-        ```
+        ```css
         /* This is a CSS comment by the way */
         div {
           border: 3px solid #333;
@@ -658,7 +658,7 @@ selector { /* sélectionnez le lien */
 
       Pour les utiliser, ajoutez-les dans la balise HTML *ouvrante*. Vous pouvez les utiliser plus qu'une fois pour le même type d'élément.
 
-      ```xml
+      ```html
       <div class="wrapper">
         contenu ici
       </div>
@@ -667,7 +667,7 @@ selector { /* sélectionnez le lien */
       Dans le CSS, un sélecteur de classe commence par un point.
 
 
-      ```
+      ```css
       .wrapper {
         width: 1000px;
       }
@@ -730,7 +730,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
         Utilisez la balise `<link>` pour référencer le fichier.
         <br><span class="note">**Conseil de pro!** Pour un raccourci clavier, tapez "link" + la touche 'tab'. Et voilà!</span>
 
-        ```
+        ```html
         <link rel="stylesheet" href="css/styles.css">
         ```
 
@@ -747,7 +747,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Cherchez le sélecteur `body, vers le haut du fichier **styles.css** et changez le nom du fichier de l'image.
 
-        ```
+        ```css
         body {
           ...
           background: url(../images/background-4.jpg) no-repeat fixed;
@@ -1123,7 +1123,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         La balise `<meta>` viewport **doit** être incluse dans le `<head>` de votre document HTML pour s'assurer que la page réagit sur les appareils mobiles.
 
-        ```xml
+        ```html
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         ```
 
@@ -1177,7 +1177,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         1. Ajoutez un media query avec un breakpoint d'environ 768px - 900px
         1. Pour `.profile-image`, voici les valeurs qui doivent changer:
-        ```
+        ```css
         float: left;
         width: 27%;
         margin-right: 3%;
@@ -1185,7 +1185,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
           * ajustez ces valeurs pour le faire flotter à droite
           * augmentez la largeur de `.profile-image`
         1. Pour `.profile .summary`, voici les valeurs qui doivent changer:
-        ```
+        ```css
         float: left;
         width: 70%;
         ```
@@ -1205,7 +1205,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Vos valeurs de largeur peuvent varier dépendant de vos préférences de design.
 
-        ```
+        ```css
         @media (max-width: 800px) {
           /* ceci est ici seulement pour faire du testing */
           body {
@@ -1389,7 +1389,7 @@ selector { /* sélectionnez le paragraphe à l'intérieur de la section 'about' 
 
         Une autre technique serait d'utiliser min-width et max-width pour spécifier des styles pour des écrans différents.
 
-        ```
+        ```css
         @media (min-width: 601px) {
           header h1 {
             font-size: 60px;
